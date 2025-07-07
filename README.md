@@ -2,7 +2,7 @@
 Official implementation for the NAACL 2025 [paper](https://aclanthology.org/2025.naacl-long.546.pdf): Continual Learning in Multilingual Sign Language Translation
 
 ## Data Preparation
-We use two feature extraction methods (I3D and S3D) on the datasets below
+We use two feature extraction methods (I3D and S3D) on the datasets below:
 - [Phoenix-2014T](https://www-i6.informatik.rwth-aachen.de/~koller/RWTH-PHOENIX-2014-T/)
 - [CSL-Daily](http://home.ustc.edu.cn/~zhouh156/dataset/csl-daily/)
 - [How2Sign](https://how2sign.github.io/)
@@ -13,6 +13,8 @@ If you need the extracted features, please send an email to [shakib yazdani](sha
 #### I3D Feature extraction
 Go to [WLASL](https://github.com/dxli94/WLASL/tree/master?tab=readme-ov-file) GitHub and download the I3D pre-trained [weights](https://drive.google.com/file/d/1jALimVOB69ifYkeT0Pe297S1z4U3jC48/view). For each dataset, run its associated Python file under `feat-ext/I3D`.
 
+#### S3D Feature extraction
+We followed [TwoStreamNetwork](https://github.com/FangyunWei/SLRT/tree/main/TwoStreamNetwork) GitHub for this part. Go to the `feat-ext/S3D/two-stream-slt` folder and download the pre-trained weights (s3ds_actioncls_ckpt, s3ds_glosscls_ckpt) and place it as pretrained_models. For each dataset, run its associated Python file.
 
 ## Citation
 
@@ -34,5 +36,3 @@ If you find our model, data or the overview of data useful for your research, pl
     ISBN = "979-8-89176-189-6",
 }
 ```
-
-## Acknowledgements
