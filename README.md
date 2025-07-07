@@ -16,6 +16,27 @@ Go to [WLASL](https://github.com/dxli94/WLASL/tree/master?tab=readme-ov-file) Gi
 #### S3D Feature extraction
 We followed [TwoStreamNetwork](https://github.com/FangyunWei/SLRT/tree/main/TwoStreamNetwork) GitHub for this part. Go to the `feat-ext/S3D/two-stream-slt` folder and download the pre-trained weights (s3ds_actioncls_ckpt, s3ds_glosscls_ckpt) and place it as pretrained_models. For each dataset, run its associated Python file.
 
+## Model Training and Evaluation
+We use [MLSLT](https://github.com/MLSLT/MLSLT) for the training and continual fine-tuning. Follow the `mlslt` folder for this part.
+### Pre-training
+Merge the Phoenix-2014T, CSL-Daily, and How2Sign datasets and pre-train the model using:
+
+
+```bash
+python -m signjoey train configs/multilingual-pretraining-s3d-seed-44.yaml
+```
+
+### Continual Fine-tuning
+We investigated 4 non-continual learning methods and 3 continual learning methods. To fine-tune the pre-trained model, run the following (e.g. multilingual fine-tuning):
+
+```bash
+# train
+python -m signjoey train configs/multilingual-finetuning-s3d-seed-44.yaml
+# test
+python -m signjoey test configs/multilingual-finetuning-s3d-seed-44.yaml
+```
+The complete list of experiments can be found in the job.sh file.
+
 ## Citation
 
 If you find our model, data or the overview of data useful for your research, please cite:
